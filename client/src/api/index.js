@@ -9,6 +9,7 @@ export const getAllMovies = () => api.get(`/movies`)
 export const updateMovieById = (id, payload) => api.put(`/movie/${id}`, payload)
 export const deleteMovieById = id => api.delete(`/movie/${id}`)
 export const getMovieById = id => api.get(`/movie/${id}`)
+export const login = (user, password) => api.post('/login', {user, password})
 
 const apis = {
     insertMovie,
@@ -16,6 +17,7 @@ const apis = {
     updateMovieById,
     deleteMovieById,
     getMovieById,
+    login
 }
 
 export default apis
