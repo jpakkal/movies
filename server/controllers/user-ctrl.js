@@ -23,7 +23,7 @@ createUser = (req, res) => {
             return res.status(201).json({
                 success: true,
                 id: user._id,
-                message: 'user created!',
+                message: 'User created!',
             })
         })
         .catch(error => {
@@ -48,25 +48,25 @@ updateUser = async (req, res) => {
         if (err) {
             return res.status(404).json({
                 err,
-                message: 'Usuario not found!',
+                message: 'User not found!',
             })
         }
         user.name = body.name
         user.email = body.email
-        user.is_premium = body.is_premium
+        //user.rating = body.rating
         user
             .save()
             .then(() => {
                 return res.status(200).json({
                     success: true,
                     id: user._id,
-                    message: 'usuario updated!',
+                    message: 'User updated!',
                 })
             })
             .catch(error => {
                 return res.status(404).json({
                     error,
-                    message: 'usuario not updated!',
+                    message: 'User not updated!',
                 })
             })
     })
@@ -97,21 +97,21 @@ getUserById = async (req, res) => {
         if (!user) {
             return res
                 .status(404)
-                .json({ success: false, error: `user not found` })
+                .json({ success: false, error: `User not found` })
         }
-        return res.status(200).json({ success: true, data: movie })
+        return res.status(200).json({ success: true, data: user })
     }).catch(err => console.log(err))
 }
 
 getUsers = async (req, res) => {
-    await User.find({}, (err, movies) => {
+    await User.find({}, (err, users) => {
         if (err) {
             return res.status(400).json({ success: false, error: err })
         }
-        if (!movies.length) {
+        if (!users.length) {
             return res
                 .status(404)
-                .json({ success: false, error: `user not found` })
+                .json({ success: false, error: `User not found` })
         }
         return res.status(200).json({ success: true, data: users })
     }).catch(err => console.log(err))
