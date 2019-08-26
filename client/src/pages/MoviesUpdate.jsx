@@ -44,6 +44,7 @@ class MoviesUpdate extends Component {
             name: '',
             rating: '',
             time: '',
+            poster: '',
         }
     }
 
@@ -65,10 +66,15 @@ class MoviesUpdate extends Component {
         this.setState({ time })
     }
 
+    handleChangeInputUrl = async event => {
+        const poster = event.target.value
+        this.setState({ poster })
+    }
+
     handleUpdateMovie = async () => {
-        const { id, name, rating, time } = this.state
+        const { id, name, rating, time, poster } = this.state
         const arrayTime = time.split('/')
-        const payload = { name, rating, time: arrayTime }
+        const payload = { name, rating,poster, time: arrayTime}
 
         await api.updateMovieById(id, payload).then(res => {
             window.alert(`Movie updated successfully`)
@@ -76,6 +82,7 @@ class MoviesUpdate extends Component {
                 name: '',
                 rating: '',
                 time: '',
+                poster:'',
             })
         })
     }
@@ -87,12 +94,13 @@ class MoviesUpdate extends Component {
         this.setState({
             name: movie.data.data.name,
             rating: movie.data.data.rating,
+            poster: movie.data.data.poster,
             time: movie.data.data.time.join('/'),
         })
     }
 
     render() {
-        const { name, rating, time } = this.state
+        const { name, rating, time, poster } = this.state
         return (
             <Wrapper>
                 <Title>Create Movie</Title>
@@ -121,6 +129,13 @@ class MoviesUpdate extends Component {
                     type="text"
                     value={time}
                     onChange={this.handleChangeInputTime}
+                />
+
+                <Label>Poster: </Label>
+                <InputText
+                    type="text"
+                    value={poster}
+                    onChange={this.handleChangeInputUrl}
                 />
 
                 <Button onClick={this.handleUpdateMovie}>Update Movie</Button>

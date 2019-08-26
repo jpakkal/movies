@@ -43,6 +43,7 @@ class MoviesInsert extends Component {
             name: '',
             rating: '',
             time: '',
+            poster:'',
         }
     }
 
@@ -63,10 +64,15 @@ class MoviesInsert extends Component {
         this.setState({ time })
     }
 
+    handleChangeInputUrl = async event => {
+        const poster = event.target.value
+        this.setState({ poster })
+    }
+
     handleIncludeMovie = async () => {
-        const { name, rating, time } = this.state
+        const { name, rating, time, poster } = this.state
         const arrayTime = time.split('/')
-        const payload = { name, rating, time: arrayTime }
+        const payload = { name, rating, time: arrayTime, poster }
 
         await api.insertMovie(payload).then(res => {
             window.alert(`Movie inserted successfully`)
@@ -74,12 +80,13 @@ class MoviesInsert extends Component {
                 name: '',
                 rating: '',
                 time: '',
+                poster:'',
             })
         })
     }
 
     render() {
-        const { name, rating, time } = this.state
+        const { name, rating, time, poster } = this.state
         return (
             <Wrapper>
                 <Title>Create Movie</Title>
@@ -108,6 +115,13 @@ class MoviesInsert extends Component {
                     type="text"
                     value={time}
                     onChange={this.handleChangeInputTime}
+                />
+
+                <Label>Poster (Url): </Label>
+                <InputText
+                    type="text"
+                    value={poster}
+                    onChange={this.handleChangeInputUrl}
                 />
 
                 <Button onClick={this.handleIncludeMovie}>Add Movie</Button>

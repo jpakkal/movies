@@ -54,6 +54,7 @@ updateMovie = async (req, res) => {
         movie.name = body.name
         movie.time = body.time
         movie.rating = body.rating
+        movie.poster = body.poster
         movie
             .save()
             .then(() => {

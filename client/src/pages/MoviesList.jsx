@@ -98,6 +98,11 @@ class MoviesList extends Component {
                 Cell: props => <span>{props.value.join(' / ')}</span>,
             },
             {
+                Header: 'Poster',
+                accessor: 'poster',
+                //Cell: props => <span>{props.value.join(' / ')}</span>,
+            },
+            {
                 Header: '',
                 accessor: '',
                 Cell: function(props) {
