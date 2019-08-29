@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import api from '../api'
+//import api from '../api'
 import movie from '../assets/movies.jpeg'
-
 import styled from 'styled-components'
 
 const Wrapper = styled.div.attrs({
@@ -17,18 +16,20 @@ class MoviesHome extends Component {
         super(props)
 
         this.state = {
-            name: '',
+           name: '',
             rating: '',
             time: '',
-        }
+       }
     }
 
     render() {
         const { name, rating, time } = this.state
         return (
-            <image>
-                <img src={movie}/>
-            </image>
+            <div class="container-fluid">
+                <image>
+                    <img src={movie}/>
+                </image>
+            </div>
         )
     }
 }

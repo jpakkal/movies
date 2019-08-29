@@ -54,11 +54,12 @@ updateUser = async (req, res) => {
         user.name = body.name
         user.email = body.email
         user.password = body.password
-        user.calle = body.calle
-        user.numero_int = body.numero_int
-        user.numero_ext = body.numero_ext
-        user.delegacion = body.delegacion
-        user.colonia = body.colonia
+        user.user_type = body.user_type
+        //user.calle = body.calle
+        //user.numero_int = body.numero_int
+        //user.numero_ext = body.numero_ext
+        //user.delegacion = body.delegacion
+        //user.colonia = body.colonia
         user.user_type = body.user_type
         user
             .save()
