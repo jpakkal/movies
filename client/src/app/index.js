@@ -2,9 +2,10 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import { NavBar } from '../components'
-import { MoviesList, MoviesInsert, MoviesUpdate, MoviesHome, MoviesLogin, UsersList,UsersUpdate,UsersInsert } from '../pages'
+import { MoviesList, MoviesInsert, MoviesUpdate, Home, MoviesLogin, UsersList,UsersUpdate,UsersInsert } from '../pages'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
+import '../assets/style.css'
 
 function App() {
     return (
@@ -20,7 +21,7 @@ function App() {
                 <Route path="/users/create" exact component={UsersInsert} />
 
                 <Route path="/login" exact component={MoviesLogin} />
-                
+                <Route path="/home" exact component={Home} />
             </Switch>
         </Router>
     )

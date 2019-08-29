@@ -1,0 +1,14 @@
+body{
+    background-color:#fff;
+}
+.home{
+    background-image: url("../assets/maxresdefault.jpg");
+    height: -webkit-fill-available;
+}
+.home h1{
+    Color:#fff;
+}
+
+.img{
+    margin-top:15vh; 
+}

@@ -1,8 +1,3 @@
-
-
-//HOME
-import MoviesHome from './MoviesHome'
-
 //Movies
 import MoviesList from './MoviesList'
 import MoviesInsert from './MoviesInsert'
@@ -15,9 +10,11 @@ import UsersUpdate from './UsersUpdate'
 
 //Loggin
 import MoviesLogin from './MoviesLogin'
+//HOME
+import Home from './Home'
 
 export { 
-    MoviesList, MoviesInsert, MoviesUpdate, MoviesHome, MoviesLogin,
+    MoviesList, MoviesInsert, MoviesUpdate, Home, MoviesLogin,
     UsersList,UsersInsert,UsersUpdate
 
 }
